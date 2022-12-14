@@ -10,6 +10,7 @@ function newImage(url, left, bottom){
 
 function newItem(url, left, bottom){
     let item = newImage(url, left, bottom)
+    item.addEventListener('dblclick', () => item.remove())
 }
 
 function newInventory(){
