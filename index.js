@@ -1,9 +1,13 @@
-function newImage(url, left, bottom){
-    let object = document.createElement('img')
-    object.src = url
+const move = (object, left, bottom) => {
     object.style.position = 'fixed'
     object.style.left = left + 'px'
     object.style.bottom = bottom + 'px'
+}
+
+function newImage(url, left, bottom){
+    let object = document.createElement('img')
+    object.src = url
+    move(object, left, bottom)
     document.body.append(object)
     return object
 }
@@ -16,13 +20,12 @@ function newItem(url, left, bottom){
         inventoryItem.src = url
         inventory.append(inventoryItem)
     })
+    return item
 }
 
 function newInventory(){
     let inventory = document.createElement('div')
-    inventory.style.position = 'fixed'
-    inventory.style.bottom = '0px';
-    inventory.style.left = '0px'
+    move(inventory, 0, 0)
     inventory.style.width = '100%'
     inventory.style.height = '100px'
     inventory.style.display = 'flex'
@@ -35,13 +38,13 @@ function newInventory(){
     return inventory
 }
 let inventory = newInventory()
-newImage('assets/green-character.gif', 100, 250)
-newImage('assets/tree.png', 200, 450)
-newImage('assets/pillar.png', 350, 250)
-newImage('assets/pine-tree.png', 450, 350)
-newImage('assets/crate.png', 150, 350)
-newImage('assets/well.png', 500, 575)
+let greenCharater = newImage('assets/green-character.gif', 100, 250)
+let tree = newImage('assets/tree.png', 200, 450)
+let pillar = newImage('assets/pillar.png', 350, 250)
+let pineTree = newImage('assets/pine-tree.png', 450, 350)
+let crate = newImage('assets/crate.png', 150, 350)
+let well = newImage('assets/well.png', 500, 575)
 
-newItem('assets/sword.png', 500, 555)
-newItem('assets/shield.png', 165, 335)
-newItem('assets/staff.png', 600, 250)
+let sword = newItem('assets/sword.png', 500, 555)
+let shield = newItem('assets/shield.png', 165, 335)
+let staff = newItem('assets/staff.png', 600, 250)
